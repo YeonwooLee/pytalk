@@ -63,7 +63,7 @@ def open_chatroom(chatroom_name):
 #talk_room_list =['자민동생','3ㅇ']
 
 def start():
-    talk_room_list =['자민동생','마마마','본동아이들','에스코드']
+    talk_room_list =['에스코드','마마마','본동아이들','앙기모']
     #talk_room_list =['자민동생','강문정']
     for i in talk_room_list:
         kakao_opentalk_name=i
