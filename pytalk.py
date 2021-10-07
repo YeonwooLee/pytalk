@@ -64,6 +64,7 @@ def open_chatroom(chatroom_name):
 
 def start():
     talk_room_list =['에스코드','마마마','본동아이들','앙기모']
+    #talk_room_list =['마마마','앙기모']
     #talk_room_list =['자민동생','강문정']
     for i in talk_room_list:
         kakao_opentalk_name=i
@@ -84,19 +85,28 @@ def timer():
     result= "%02d:%02d" % (now.tm_hour, now.tm_min)
     return result.split(':')
 
- 
+
+set_hour = '06'
+set_minute = str(random.randint(0,30))
+if len(set_minute)==1:
+    set_minute='0'+set_minute
+print('Send message at {}:{}'.format(set_hour,set_minute))
 
 #실제 실행하게 하는 코드
 while True:
-    set_minute = str(random.randint(0,30))
-    if len(set_minute)==1:
-        set_minute='0'+set_minute
-
-
     now_time = timer()
     now_hour = now_time[0]
     now_minute = now_time[1]
-    if now_hour=='06' and now_minute==set_minute:
+
+    if now_hour==set_hour and now_minute==set_minute:
         start()
+
+        set_hour = set_hour
+        set_minute = str(random.randint(0,30))
+        if len(set_minute)==1:
+            set_minute='0'+set_minute
+        print('Send message at {}:{}'.format(set_hour,set_minute))
+
         time.sleep(3600)
+
     time.sleep(1)
